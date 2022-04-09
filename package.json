@@ -2,11 +2,12 @@
   "name": "vite-react-tailwind-jit-template",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
