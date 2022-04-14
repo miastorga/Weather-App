@@ -1,16 +1,17 @@
 import React from 'react'
 
-export const Detalles = ({ dataCurrent }) => {
+export const Detalles = ({ data }) => {
+  console.log(data)
   return (
     <div className='flex justify-evenly text-2xl flex-wrap'>
-      <p className='text-center sm:my-5 sm:text-3xl'>
-        Humedad: {dataCurrent.humidity}%
+      <p className='text-center sm:text-3xl'>
+        Humedad: {data.current.humidity}%
       </p>
-      <p className='text-center sm:my-5 sm:text-3xl'>
-        Viento: {dataCurrent.wind_kph}km/h
+      <p className='text-center sm:text-3xl'>
+        Viento: {data.current.wind_kph}km/h
       </p>
-      <p className='text-center sm:my-5 sm:text-3xl'>
-        Precipitacion: {dataCurrent.precip_mm}mm
+      <p className='text-center sm:text-3xl'>
+        Precipitacion: {data.current.precip_mm}mm
       </p>
     </div>
   )
