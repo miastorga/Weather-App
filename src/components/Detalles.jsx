@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const Detalles = ({ data }) => {
-  console.log(data)
   return (
     <div className='flex justify-evenly text-2xl flex-wrap'>
       <p className='text-center sm:text-3xl'>

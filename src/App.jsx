@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState, useRef } from 'react'
 import axios from 'axios'
-import fog from '/src/icons/cloudy-night-2.svg'
+
 import { Wrapper } from './components/Wrapper'
 import { Detalles } from './components/Detalles'
 import { Tiempo } from './components/Tiempo'
+import { TiempoInicial } from './components/TiempoMessage'
+import { WeatherIcon } from './components/WeatherIcon'
 const App = () => {
   const [input, setInput] = useState('')
   const [data, setData] = useState({})
+  const [error, setError] = useState(false)
   const getData = (e) => {
     const options = {
       method: 'GET',
@@ -25,16 +28,20 @@ const App = () => {
           setInput('')
         })
         .catch(function (error) {
-          console.error(error)
+          setError(true)
+          // console.log(error.response.data.error)
+          // if (error.response.data.error.code) {
+          //   console.log('eero de la api')
+          // }
         })
     }
   }
   return (
     <Wrapper>
-      <div className='flex justify-center m-2 sm:w-3/4 sm:m-2'>
+      <div className='flex justify-center m-2 w-full'>
         <input
           type='text'
-          className='rounded-lg text-2xl bg-gray-500 w-11/12  p-2 sm:h-14 '
+          className='text-white rounded-lg text-2xl bg-gray-500 w-11/12 p-2 sm:h-14 md:w-9/12'
           placeholder='San Antonio, cl'
           onChange={(e) => setInput(e.target.value)}
           value={input}
@@ -42,13 +49,11 @@ const App = () => {
         />
       </div>
       {Object.keys(data).length === 0 ? (
-        <h1 className='text3xl'>undedined</h1>
+        <TiempoInicial error={error} />
       ) : (
         <>
           <Tiempo data={data} />
-          <div className='flex justify-center'>
-            <img src={fog} alt='' className='w-60 sm:w-72' />
-          </div>
+          <WeatherIcon data={data} />
           <Detalles data={data} />
         </>
       )}
