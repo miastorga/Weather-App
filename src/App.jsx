@@ -1,10 +1,9 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
-import { Wrapper } from './components/Wrapper'
 import { Detalles } from './components/Detalles'
 import { Tiempo } from './components/Tiempo'
-import { TiempoInicial } from './components/TiempoMessage'
+import { TiempoMessage } from './components/TiempoMessage'
 import { WeatherIcon } from './components/WeatherIcon'
 const App = () => {
   const [input, setInput] = useState('')
@@ -27,21 +26,17 @@ const App = () => {
           setData(response.data)
           setInput('')
         })
-        .catch(function (error) {
+        .catch((error) => {
           setError(true)
-          // console.log(error.response.data.error)
-          // if (error.response.data.error.code) {
-          //   console.log('eero de la api')
-          // }
         })
     }
   }
   return (
-    <Wrapper>
-      <div className='flex justify-center m-2 w-full'>
+    <>
+      <div className='text-center mt-4'>
         <input
           type='text'
-          className='text-white rounded-lg text-2xl bg-gray-500 w-11/12 p-2 sm:h-14 md:w-9/12'
+          className='placeholder:text-black text-black rounded-lg text-2xl bg-gray-100 w-11/12 p-2 sm:h-14 md:w-6/12'
           placeholder='San Antonio, cl'
           onChange={(e) => setInput(e.target.value)}
           value={input}
@@ -49,7 +44,7 @@ const App = () => {
         />
       </div>
       {Object.keys(data).length === 0 ? (
-        <TiempoInicial error={error} />
+        <TiempoMessage error={error} />
       ) : (
         <>
           <Tiempo data={data} />
@@ -57,7 +52,7 @@ const App = () => {
           <Detalles data={data} />
         </>
       )}
-    </Wrapper>
+    </>
   )
 }
 

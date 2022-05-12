@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const TiempoInicial = ({ error }) => {
+export const TiempoMessage = ({ error }) => {
   return (
     <div className='m-2 text-center text-black font-bold sm:text-lg md:text-2xl'>
       {error ? (
