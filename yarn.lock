@@ -543,9 +543,9 @@
   dependencies:
     "is-arrayish" "^0.2.1"
 
-"esbuild-windows-32@0.13.8":
-  "integrity" "sha512-QsZ1HnWIcnIEApETZWw8HlOhDSWqdZX2SylU7IzGxOYyVcX7QI06ety/aDcn437mwyO7Ph4RrbhB+2ntM8kX8A=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-32/-/esbuild-windows-32-0.13.8.tgz"
+"esbuild-linux-64@0.13.8":
+  "integrity" "sha512-Bm8SYmFtvfDCIu9sjKppFXzRXn2BVpuCinU1ChTuMtdKI/7aPpXIrkqBNOgPTOQO9AylJJc1Zw6EvtKORhn64w=="
+  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.13.8.tgz"
   "version" "0.13.8"
 
 "esbuild@^0.13.2":

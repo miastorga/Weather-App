@@ -36,7 +36,8 @@ const App = () => {
       <div className='text-center mt-4'>
         <input
           type='text'
-          className='placeholder:text-black text-black rounded-lg text-2xl bg-gray-100 w-11/12 p-2 sm:h-14 md:w-6/12'
+          className='placeholder:text-black text-black rounded-lg text-2xl 
+          bg-gray-100 w-11/12 p-2 sm:h-14 md:w-6/12'
           placeholder='San Antonio, cl'
           onChange={(e) => setInput(e.target.value)}
           value={input}
