@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import { Detalles } from './components/Detalles'
+// import { Detalles } from './components/Detalles'
 import { Tiempo } from './components/Tiempo'
 import { TiempoMessage } from './components/TiempoMessage'
-import { WeatherIcon } from './components/WeatherIcon'
+// import { WeatherIcon } from './components/WeatherIcon'
 const App = () => {
   const [input, setInput] = useState('')
   const [data, setData] = useState({})
   const [error, setError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const getData = (e) => {
     const options = {
       method: 'GET',
@@ -20,14 +21,18 @@ const App = () => {
       },
     }
     if (e.key == 'Enter') {
+      setIsLoading(true)
       axios
         .request(options)
         .then((response) => {
           setData(response.data)
           setInput('')
+          setIsLoading(false)
         })
         .catch((error) => {
           setError(true)
+          setIsLoading(false)
+          console.log(error)
         })
     }
   }
@@ -44,15 +49,11 @@ const App = () => {
           onKeyPress={getData}
         />
       </div>
-      {Object.keys(data).length === 0 ? (
+      {!isLoading && Object.keys(data).length > 0 && <Tiempo data={data} />}
+      {!isLoading && Object.keys(data).length === 0 && (
         <TiempoMessage error={error} />
-      ) : (
-        <>
-          <Tiempo data={data} />
-          <WeatherIcon data={data} />
-          <Detalles data={data} />
-        </>
       )}
+      {isLoading && <h1 className='text-4xl text-slate-200 text-center m-10'>Cargando...</h1>}
     </>
   )
 }

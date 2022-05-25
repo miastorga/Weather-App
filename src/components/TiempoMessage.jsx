@@ -13,7 +13,7 @@ export const TiempoMessage = ({ error }) => {
           </div>
         </>
       ) : (
-        <h1 className='text-slate-200 mt-10'>Ingrese una ciudad</h1>
+        <h1 className='text-slate-200 mt-10'>Ingresa una ciudad</h1>
       )}
     </div>
   )

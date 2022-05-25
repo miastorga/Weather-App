@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { WeatherIcon } from './WeatherIcon.jsx'
+import { Detalles } from './Detalles.jsx'
 export const Tiempo = ({ data }) => {
   const horario = data.location.localtime
   const diaSlice = horario.slice(0, 10)
@@ -22,6 +23,8 @@ export const Tiempo = ({ data }) => {
           <span className='text-slate-200 font-thin sm:font-normal'> C°</span>
         </h1>
       </div>
+            <WeatherIcon data={data}/>
+            <Detalles data={data}/>
     </div>
   )
 }
