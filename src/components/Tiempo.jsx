@@ -7,11 +7,11 @@ export const Tiempo = ({ data }) => {
   const horaSlice = horario.slice(10, 16)
   return (
     <div className='flex flex-col text-center justify-center'>
-      <h1 className='text-slate-900 text-5xl pt-3 sm:text-6xl sm:mx-4 sm:dnf install rust cargomy-1 sm:tracking-wider'>
+      <h1 className='text-slate-200 text-5xl pt-3 sm:text-6xl sm:mx-4 sm:dnf install rust cargomy-1 sm:tracking-wider'>
         {data.location.name}
       </h1>
       <div className='flex justify-center'>
-        <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${diaSlice}`}</p>
+        <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${diaSlice.replaceAll('-','/')}`}</p>
         <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${horaSlice}`}</p>
       </div>
       <p className='text-slate-200 text-1xl mx-4 my-2 sm:text-3xl '>
