@@ -11,7 +11,10 @@ export const Tiempo = ({ data }) => {
         {data.location.name}
       </h1>
       <div className='flex justify-center'>
-        <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${diaSlice.replaceAll('-','/')}`}</p>
+        <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${diaSlice.replaceAll(
+          '-',
+          '/'
+        )}`}</p>
         <p className='text-slate-200 text-1xl mx-14 my-2 sm:text-3xl'>{`${horaSlice}`}</p>
       </div>
       <p className='text-slate-200 text-1xl mx-4 my-2 sm:text-3xl '>
@@ -23,8 +26,8 @@ export const Tiempo = ({ data }) => {
           <span className='text-slate-200 font-thin sm:font-normal'> C°</span>
         </h1>
       </div>
-            <WeatherIcon data={data}/>
-            <Detalles data={data}/>
+      <WeatherIcon data={data} />
+      <Detalles data={data} />
     </div>
   )
 }
